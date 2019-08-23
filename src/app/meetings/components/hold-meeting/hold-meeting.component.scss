@@ -1,0 +1,57 @@
+@import '~scss/_variables.scss';
+
+.counter {
+  height: 200px;
+  position: relative;
+  
+  h2 {
+    left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+  }
+  
+  .burned {
+    font-size: 6rem;
+    position: absolute;
+    text-align: center;
+    top: 60px;
+    width: 100%;
+  }
+  
+  .wasted {
+    bottom: 60px;
+    font-size: $font-size-text;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .burned-background {
+    color: $color-brand;
+    height: 100%;
+    font-size: 18rem;
+    line-height: 100%;
+    opacity: 0.2;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .meeting-controls {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    
+    .btn {
+      margin-right: 5px;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

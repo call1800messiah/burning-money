@@ -1,0 +1,51 @@
+<div class="page">
+  <form (ngSubmit)="onSubmit()" #meetingForm="ngForm">
+    <div class="input-group">
+      <label for="meeting-name">Name</label>
+      <input type="text" [(ngModel)]="meeting.name" id="meeting-name" name="meeting-name" required />
+    </div>
+    
+    <div class="people">
+      <h2>Participant</h2>
+      <div class="person" *ngFor="let person of meeting.people; let i = index">
+        <div class="input-group">
+          <label for="person-name-{{i}}">Name</label>
+          <input type="text" [ngModel]="person.name" id="person-name-{{i}}" name="person-name-{{i}}" required />
+        </div>
+        <div class="input-group">
+          <label for="person-rate-{{i}}">Rate</label>
+          <input type="text" [ngModel]="person.rate" id="person-rate-{{i}}" name="person-rate-{{i}}" required />
+        </div>
+        <div class="input-group">
+          <label for="person-salary-{{i}}">Salary</label>
+          <input type="text" [ngModel]="person.salary" id="person-salary-{{i}}" name="person-salary-{{i}}" required />
+        </div>
+        <button type="button" class="btn" (click)="removePerson(index)">
+          <i class="fas fa-minus-circle"></i>
+        </button>
+      </div>
+
+      <div class="person-add">
+        <div class="input-group">
+          <label for="person-name-new">Name</label>
+          <input type="text" [(ngModel)]="newPerson.name" id="person-name-new" name="person-name-new" />
+        </div>
+        <div class="input-group">
+          <label for="person-rate-new">Rate</label>
+          <input type="text" [(ngModel)]="newPerson.rate" id="person-rate-new" name="person-rate-new" />
+        </div>
+        <div class="input-group">
+          <label for="person-salary-new">Salary</label>
+          <input type="text" [(ngModel)]="newPerson.salary" id="person-salary-new" name="person-salary-new" />
+        </div>
+        <button type="button" class="btn" (click)="addPerson(newPerson)" [disabled]="newPerson.name.trim() === ''">
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+        
+    <button type="submit" class="btn" [disabled]="cantCreateMeeting()">
+      Speichern
+    </button>
+  </form>
+</div>

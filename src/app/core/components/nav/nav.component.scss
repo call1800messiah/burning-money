@@ -1,0 +1,36 @@
+@import "~scss/_variables.scss";
+
+nav {
+  background-color: $color-brand;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  
+  .btn {
+    color: $color-text-bright;
+    height: $nav-icon-size;
+    float: left;
+    font-size: $font-size-nav;
+    line-height: $line-height-nav;
+    padding: 10px;
+    position: relative;
+    width: $nav-icon-size;
+  }
+  
+  .count {
+    background: $color-bubble-bg;
+    border-radius: 50%;
+    bottom: 5px;
+    color: $color-bubble-text;
+    display: block;
+    font-size: $font-size-bubble;
+    height: $line-height-bubble;
+    line-height: $line-height-bubble;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    width: $line-height-bubble;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="page">
+  <h2>Meetings</h2>
+  <button class="btn" routerLink="/meetings/create">New meeting</button>
+  <ul class="list-default">
+    <li class="meeting" *ngFor="let meeting of meetings$ | async">
+      <div class="name">{{meeting.name}}</div>
+      <div class="control-buttons">
+        <button class="btn" (click)="deleteMeeting(meeting.id)">
+          <i class="fas fa-trash"></i>
+        </button>
+        <button class="btn" [routerLink]="['/meetings/hold', meeting.id]" [disabled]="meetingFinished(meeting)">
+           <i class="fas fa-fire"></i>
+        </button>
+      </div>
+      
+    </li>
+  </ul>
+</div>

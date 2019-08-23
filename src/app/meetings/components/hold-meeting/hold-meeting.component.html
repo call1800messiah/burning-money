@@ -1,0 +1,35 @@
+<div class="page">
+  <div class="meeting" *ngIf="meeting$ | async as meeting">
+    <div class="counter">
+      <h2 class="meeting-name">{{meeting.name}}</h2>
+      <div class="burned" *ngIf="burned$ | async as burned">{{burned | number: '1.2-2'}} €</div>
+      <div class="wasted" *ngIf="wasted$ | async as wasted">{{(wasted/60000) | number: '2.0-0'}}:{{(wasted/1000) | number: '2.0-0'}}</div>
+      <div class="burned-background">
+        <i class="fas fa-burn"></i>
+      </div>
+      <div class="meeting-controls">
+        <button class="btn" (click)="startMeeting()" title="Start burning">
+          <i class="fas fa-fire"></i>
+        </button>
+        <button class="btn" (click)="pauseMeeting()" title="Brief intermission">
+          <i class="fas fa-cloud-rain"></i>
+        </button>
+        <button class="btn" (click)="stopMeeting()" title="It's finally over!">
+          <i class="fas fa-fire-extinguisher"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="participants">
+      <h3>Participants</h3>
+      <ul class="list-default">
+        <li class="person" *ngFor="let person of meeting.people">
+          <div class="name">{{person.name}}</div>
+          <div class="control-buttons">
+            
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
